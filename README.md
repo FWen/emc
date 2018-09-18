@@ -1,7 +1,7 @@
 # emc
 Efficient and Effective Algorithms for Maximum Consensus Robust Fitting
 
-This code is used to reproduce the results in "Wen, Ying, Liu, Qiu, Efficient and Effective Algorithms for Maximum Consensus Robust Fitting, 2018". 
+This code is used to reproduce the results in "Wen, Ying, Liu, Efficient Maximum Consensus Robust Fitting, 2018". 
 
 To use the code, firstly unzip 'src.zip'.
 
