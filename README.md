@@ -1,4 +1,4 @@
-# Efficient and Effective Algorithms for Maximum Consensus Robust Fitting
+# Efficient and Effective Algorithms for Maximum Consensus Robust Fitting in Computer Vision
 
 This code is used to reproduce the results in "Wen, Ying, Liu, Efficient Maximum Consensus Robust Fitting, 2018". 
 
