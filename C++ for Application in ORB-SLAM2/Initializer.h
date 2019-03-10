@@ -30,8 +30,8 @@ namespace ORB_SLAM2
 // THIS IS THE INITIALIZER FOR MONOCULAR SLAM. NOT USED IN THE STEREO OR RGBD CASE.
 
 // control flags // Only choose one:
-#define USE_RANSAC
-//#define USE_ADMM
+//#define USE_RANSAC
+#define USE_ADMM
 
 // ADMM parameters
 #define ADM_INLIER_TH           2
