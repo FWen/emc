@@ -1,6 +1,6 @@
 # Efficient Maximum Consensus Algorithms for Robust Fitting in Computer Vision
 
-This code is used to reproduce the results in "Wen, Ying, Liu, Efficient Maximum Consensus Robust Fitting, 2018". 
+This code is used to reproduce the results in "F. Wen, R. Ying, Z. Gong, and P. Liu, Efficient Maximum Consensus Robust Fitting, IEEE Transactions on Robotics, 2019". 
 
 To use the code, firstly unzip 'src.zip'.
 
