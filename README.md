@@ -15,4 +15,3 @@ SeDuMi is need in solving the LP problems, which is available at http://sedumi.i
 The “C++ for Application in ORB-SLAM2” folder contains the C++ implementation of the ADMM algorithm for homography and fundamental matrix estimation, which can be directly used in the popular open source ORB-SLAM2 system (https://github.com/raulmur/ORB_SLAM2). 
 
 We have tested the code in ORB-SLAM2 in a monocular example using a seuence from the KITTI dadaset.
-Users can choose RANSAC or ADMM via setting a parameter in "Initializer.h", e.g. USE_RANSAC or USE_ADMM.
