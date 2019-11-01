@@ -77,49 +77,9 @@ bool Initializer::Initialize(const Frame &CurrentFrame, const vector<int> &vMatc
     float SH, SF;
     cv::Mat H, F;
 
-    #ifdef USE_RANSAC
-        // Indices for minimum set selection
-        vector<size_t> vAllIndices;
-        vAllIndices.reserve(N);
-        vector<size_t> vAvailableIndices;
-
-        for(int i=0; i<N; i++)
-        {
-            vAllIndices.push_back(i);
-        }
-        // Generate sets of 8 points for each RANSAC iteration
-        mvSets = vector< vector<size_t> >(mMaxIterations,vector<size_t>(8,0));
-
-        DUtils::Random::SeedRandOnce(0);
-
-        for(int it=0; it<mMaxIterations; it++)
-        {
-            vAvailableIndices = vAllIndices;
-
-            // Select a minimum set
-            for(size_t j=0; j<8; j++)
-            {
-                int randi = DUtils::Random::RandomInt(0,vAvailableIndices.size()-1);
-                int idx = vAvailableIndices[randi];
-
-                mvSets[it][j] = idx;
-
-                vAvailableIndices[randi] = vAvailableIndices.back();
-                vAvailableIndices.pop_back();
-            }
-        }
-
-        // Launch threads to compute in parallel a fundamental matrix and a homography
-        thread threadH(&Initializer::FindHomography_RANSAC,this,ref(vbMatchesInliersH), ref(SH), ref(H));
-        thread threadF(&Initializer::FindFundamental_RANSAC,this,ref(vbMatchesInliersF), ref(SF), ref(F));
-    #endif
-
-
-    #ifdef USE_ADMM
-        // Launch threads to compute in parallel a fundamental matrix and a homography
-        thread threadH(&Initializer::FindHomography_ADM,this,ref(vbMatchesInliersH), ref(SH), ref(H));
-        thread threadF(&Initializer::FindFundamental_ADM,this,ref(vbMatchesInliersF), ref(SF), ref(F));
-    #endif
+    // Launch threads to compute in parallel a fundamental matrix and a homography
+    thread threadH(&Initializer::FindHomography_ADM,this,ref(vbMatchesInliersH), ref(SH), ref(H));
+    thread threadF(&Initializer::FindFundamental_ADM,this,ref(vbMatchesInliersF), ref(SF), ref(F));
 
     // Wait until both threads have finished
     threadH.join();
